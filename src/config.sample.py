@@ -6,5 +6,9 @@ conf = {
     "longest_expected_minimum_duration" : 45,
     
     #the expected number of transfers
-    "expected_transfers" : 2
+    "expected_transfers" : 2,
+
+    #LINE API credentials
+    "channelAccessToken" : "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", 
+    "targetID" : "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz", 
 }

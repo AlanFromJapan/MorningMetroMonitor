@@ -3,6 +3,8 @@ from webutils import get_web_page_content
 import routes
 import re
 from config import conf
+from line_notifier import send_line_message
+
 
 # Extracts the departure and arrival stations and the duration of the trip from the text "16:05→16:40（35分）" (BEWARE JAPANESE PARENTHESES)
 RE_DEPART_END="""(?P<departure>[^→]+)→(?P<arrival>[^（]+)（(?P<duration>\d+)"""
@@ -70,6 +72,9 @@ def main():
         print("There are delays in the metro system")
     else:
         print("Metro system is running smoothly")
+
+
+    send_line_message(str(fastest_route) + "\n\n" + ("There are delays in the metro system" if delay else "Metro system is running smoothly") + "\n\n" + conf["url"])
 
 if __name__ == "__main__":
     main()
