@@ -3,7 +3,7 @@ from webutils import get_web_page_content
 import routes
 import re
 
-URL="https://transit.yahoo.co.jp/search/result?from=%E7%B6%BE%E7%80%AC&to=%E6%96%B0%E6%9D%BF%E6%A9%8B&fromgid=&togid=&flatlon=%2C%2C22499&tlatlon=%2C%2C22729&via=&viacode=&y=2024&m=09&d=04&hh=16&m1=0&m2=4&type=1&ticket=ic&expkind=1&userpass=1&ws=3&s=0&al=1&shin=1&ex=1&hb=1&lb=1&sr=1"
+URL="https://transit.yahoo.co.jp/search/result?from=%E7%B6%BE%E7%80%AC&to=%E6%96%B0%E6%9D%BF%E6%A9%8B&fromgid=&togid=&flatlon=%2C%2C22499&tlatlon=%2C%2C22729&via=&viacode&type=1&ticket=ic&expkind=1&userpass=1&ws=3&s=0&al=1&shin=1&ex=1&hb=1&lb=1&sr=1"
 
 RE_DEPART_END="""(?P<departure>[^→]+)→(?P<arrival>[^（]+)（(?P<duration>\d+)"""
 re_depart_end = re.compile(RE_DEPART_END)
