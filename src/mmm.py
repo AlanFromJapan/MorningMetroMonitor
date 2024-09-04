@@ -4,7 +4,7 @@ import routes
 import re
 from config import conf
 
-
+# Extracts the departure and arrival stations and the duration of the trip from the text "16:05→16:40（35分）" (BEWARE JAPANESE PARENTHESES)
 RE_DEPART_END="""(?P<departure>[^→]+)→(?P<arrival>[^（]+)（(?P<duration>\d+)"""
 re_depart_end = re.compile(RE_DEPART_END)
 
@@ -46,7 +46,9 @@ def check_for_delays(routes):
     delay=False
     fastest_route = None
 
+    #shouldn't take more than x minutes
     longest_expected_minimum_duration = conf["longest_expected_minimum_duration"]
+    #in my case filtering on the number of transfers is enough to get the fastest route (with the "fast" flag on the route too)
     expected_transfers = conf["expected_transfers"]
 
     for route in routes:
