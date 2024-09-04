@@ -168,3 +168,4 @@ include/
 lib/
 lib64
 pyvenv.cfg
+config.py
