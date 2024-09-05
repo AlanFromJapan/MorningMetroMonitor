@@ -4,6 +4,7 @@ import routes
 import re
 from config import conf
 from line_notifier import send_line_message
+import sys
 
 
 # Extracts the departure and arrival stations and the duration of the trip from the text "16:05→16:40（35分）" (BEWARE JAPANESE PARENTHESES)
@@ -73,8 +74,8 @@ def main():
     else:
         print("Metro system is running smoothly")
 
-
-    send_line_message(str(fastest_route) + "\n\n" + ("There are delays in the metro system" if delay else "Metro system is running smoothly") + "\n\n" + conf["url"])
+    if len(sys.argv) > 1 and sys.argv[1] == "line":
+        send_line_message(str(fastest_route) + "\n\n" + ("There are delays in the metro system" if delay else "Metro system is running smoothly") + "\n\n" + conf["url"])
 
 if __name__ == "__main__":
     main()
